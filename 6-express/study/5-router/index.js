@@ -1,4 +1,4 @@
-// 유용한 내부 미들웨어들
+// CORS 처리 방법
 import express from 'express';
 
 
