@@ -1,15 +1,24 @@
-// 라우터
+// 유용한 외부 미들웨어들
 
 import express from 'express';
-import postRouter from './router/posts.js';
-import userRouter from './router/users.js';
+import cookieParser from 'cookie-parser';
+import morgan from 'morgan';
+import helmet from 'helmet';
 
 const app = express();
 
 app.use(express.json());
 
-app.use('/posts', postRouter);
-app.use('/users', userRouter);
+app.use(cookieParser());
+app.use(morgan('combined')); // combined는 포맷
+app.use(helmet()); // 공통적으로 보안에 필요한 헤더를 추가해줌
+
+app.get('/', (req, res) => {
+  console.log(req.body);
+  console.log(req.cookies);
+  req.cookies.yummy_cookie;
+  res.send('Welcome!');
+});
 
 app.use((error, req, res, next) => {
   console.error(error);
