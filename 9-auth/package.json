@@ -1,0 +1,20 @@
+{
+  "name": "9-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "1-bcrypt.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon 2-jwt.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1"
+  }
+}
