@@ -52,6 +52,12 @@ app.get('/', (req, res, next) => {
   res.send('second!2');
 });
 
+app.use(express.json()); // body에 들어오는 것을 파싱해서 읽도록 함
+
+app.post('/', (req, res, next) => {
+  console.log(req.body);
+});
+
 app.use((req, res, next) => {
   res.status(404).send('Not Found!');
 });
@@ -61,4 +67,6 @@ app.use((error, req, res, next) => {
   res.status(500).send('try later!');
 });
 
-app.listen(8080, () => {});
+app.listen(8080, () => {
+  console.log('listen at localhost:8080');
+});
